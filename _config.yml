@@ -3,12 +3,12 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: About 3sa
 subtitle: ''
 description: ''
 keywords:
-author: John Doe
-language: en
+author: Allen Wang
+language: zh-CN
 timezone: ''
 
 # URL
@@ -94,9 +94,7 @@ exclude:
 ignore:
 
 # Extensions
-## Plugins: https://hexo.io/plugins/
-## Themes: https://hexo.io/themes/
-theme: landscape
+theme: dashed
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
