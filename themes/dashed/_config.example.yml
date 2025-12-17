@@ -1,0 +1,18 @@
+favicon: /favicon.svg
+cover: /cover.gif
+
+menu:
+    Page: /page
+    Posts: /posts
+    Tags: /tags
+    Categories: /categories
+    Archives: /archives
+header_menu:
+    Posts: /posts
+    Tags: /tags
+    Categories: /categories
+    Archives: /archives
+
+posts_category_depth: 1
+do_not_show_parent_category: true
+show_description: true

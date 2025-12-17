@@ -1,0 +1,13 @@
+<% for (const title in theme.menu) { %>
+    <li>
+        <a href="<%- url_for(theme.menu[title]) -%>"
+            ><span><%= title -%></span></a
+        >
+    </li>
+<% } %>
+<% if (Object.keys(theme.menu || {}).length === 0) { %>
+    <li><a href="<%- url_for("/posts") %>"><span><%= __("titles.posts") %></span></a></li>
+    <li><a href="<%- url_for(config.tag_dir) %>"><span><%= __("titles.tags") %></span></a></li>
+    <li><a href="<%- url_for(config.category_dir) %>"><span><%= __("titles.categories") %></span></a></li>
+    <li><a href="<%- url_for(config.archive_dir) %>"><span><%= __("titles.archive") %></span></a></li>
+<% } %>
