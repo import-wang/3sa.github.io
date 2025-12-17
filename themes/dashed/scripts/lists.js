@@ -1,10 +1,11 @@
 const pagination = require("hexo-pagination");
 
 const paginationPath = hexo.config.pagination_dir.replace(/\/$/, "");
+const postsPath = (hexo.theme.config.posts_path || "/posts").replace(/\/$/, "");
 
 hexo.extend.generator.register("lists", (locals) => [
     ...pagination(
-        "/posts",
+        postsPath,
         locals.posts.sort(hexo.config.index_generator.order_by),
         {
             perPage: hexo.config.per_page,

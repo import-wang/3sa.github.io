@@ -1,5 +1,6 @@
 <% const categoryPath = config.category_dir.split("/").filter((path) => path) %>
 <% const paginationPath = config.pagination_dir.split("/").filter((path) => path) %>
+<% const postsPath = (theme.posts_path || "/posts").replace(/\/$/, "") %>
 <% const categories =
     page.path.split("/").slice(categoryPath.length,
     page.path.split("/").length - 1 - (page.current > 1 ? paginationPath.length + 1 : 0)) %>
@@ -16,7 +17,7 @@
         .map((category) => category.name).join("/") + "/"
     : is_tag()
     ? "# " + page.tag
-    : is_current("/posts")
+    : is_current(postsPath)
     ? __("titles.posts")
     : is_current("/" + locals.config.tag_dir)
     ? __("titles.tags")
@@ -31,7 +32,7 @@
     ? ["post.css"]
     : is_archive()
     ? ["archive.css"]
-    : is_current("/posts")
+    : is_current(postsPath)
     ? ["posts.css"]
     : is_current("/" + locals.config.category_dir)
     ? ["categories.css"]
@@ -41,13 +42,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <% if (theme.favicon) { %>
+    <link rel="icon" href="<%- url_for(theme.favicon) %>" sizes="any" />
+    <link rel="icon" href="<%- url_for(theme.favicon) %>" type="image/svg+xml" />
     <link rel="shortcut icon" href="<%- url_for(theme.favicon) %>" />
 <% } %>
 
 <style>
-    <%- __("fonts.fontFace") %>
+    :root {
+        --latin-font: <%- theme.latin_font || "'SF Pro Text', 'Segoe UI', Arial" %>;
+        --cjk-font-sans: <%- theme.cjk_font_sans || "'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" %>;
+        --cjk-font-serif: <%- theme.cjk_font_serif || "'Songti SC', 'STSong', 'SimSun', 'Noto Serif CJK SC', serif" %>;
+        --cjk-font: <%- (theme.cjk_font_default === "serif" ? "var(--cjk-font-serif)" : "var(--cjk-font-sans)") %>;
+    }
+
     body {
-        font-family: <%- __("fonts.serif") %>;
+        font-family: var(--latin-font), var(--cjk-font);
     }
 </style>
 
