@@ -2,8 +2,15 @@
   "name": "hexo-site",
   "version": "0.0.0",
   "private": true,
+  "landingPage": {
+    "name": "Allen Wang",
+    "signature": "stands in the world",
+    "email": "mailto:jonyerwang@foxmail.com",
+    "github": "https://github.com/import-wang",
+    "avatar": "https://github.com/import-wang.png"
+  },
   "scripts": {
-    "build": "hexo generate && rm -rf .homepage && git clone --depth=1 https://github.com/SimonAKing/HomePage.git .homepage && cd .homepage && npm install && npm run build && cd .. && cp -R .homepage/dist/* public/",
+    "build": "hexo generate && rm -rf .homepage && git clone --depth=1 https://github.com/SimonAKing/HomePage.git .homepage && node -e 'const fs=require(\"fs\");const pkg=JSON.parse(fs.readFileSync(\"package.json\",\"utf8\"));const o=pkg.landingPage||{};const p=\".homepage/config.json\";const cfg=JSON.parse(fs.readFileSync(p,\"utf8\"));if(o.name){cfg.head=cfg.head||{};cfg.intro=cfg.intro||{};cfg.main=cfg.main||{};cfg.head.title=o.name;cfg.intro.title=o.name;cfg.main.name=o.name;}if(o.signature){cfg.main=cfg.main||{};cfg.main.signature=o.signature;}if(o.avatar){cfg.main=cfg.main||{};cfg.main.avatar=cfg.main.avatar||{};cfg.main.avatar.link=o.avatar;}if(o.email){cfg.main=cfg.main||{};cfg.main.ul=cfg.main.ul||{};cfg.main.ul.third=cfg.main.ul.third||{};cfg.main.ul.third.href=o.email;}if(o.github){cfg.main=cfg.main||{};cfg.main.ul=cfg.main.ul||{};cfg.main.ul.fourth=cfg.main.ul.fourth||{};cfg.main.ul.fourth.href=o.github;}fs.writeFileSync(p,JSON.stringify(cfg,null,\"\\t\")+\"\\n\");' && cd .homepage && npm install && npm run build && cd .. && cp -R .homepage/dist/* public/",
     "clean": "hexo clean",
     "deploy": "hexo deploy",
     "server": "hexo server"
