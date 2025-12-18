@@ -6,19 +6,19 @@ cjk_font_sans: '"PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans
 cjk_font_serif: '"Songti SC", "STSong", "SimSun", "Noto Serif CJK SC", serif'
 cjk_font_default: serif
 
-posts_path: /posts
+posts_path: /blog
 
 menu:
-  Posts: /posts
-  Tags: /tags
-  Categories: /categories
-  Archives: /archives
+  Posts: /blog
+  Tags: /blog/tags
+  Categories: /blog/categories
+  Archives: /blog/archives
 
 header_menu:
-  Posts: /posts
-  Tags: /tags
-  Categories: /categories
-  Archives: /archives
+  Posts: /blog
+  Tags: /blog/tags
+  Categories: /blog/categories
+  Archives: /blog/archives
 
 posts_category_depth: 1
 do_not_show_parent_category: true

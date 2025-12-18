@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "hexo generate",
+    "build": "hexo generate && rm -rf .homepage && git clone --depth=1 https://github.com/SimonAKing/HomePage.git .homepage && cd .homepage && npm install && npm run build && cd .. && cp -R .homepage/dist/* public/",
     "clean": "hexo clean",
     "deploy": "hexo deploy",
     "server": "hexo server"

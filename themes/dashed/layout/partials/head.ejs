@@ -33,7 +33,7 @@
     : is_archive()
     ? ["archive.css"]
     : is_current(postsPath)
-    ? ["posts.css"]
+    ? []
     : is_current("/" + locals.config.category_dir)
     ? ["categories.css"]
     : [] %>
