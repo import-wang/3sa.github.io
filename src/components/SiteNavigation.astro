@@ -21,9 +21,12 @@ const { translate: t } = Astro.locals
     {
       socialLinks.map(({ href, name }) => {
         const external = href.startsWith('http')
+        // ponytail: /welcome/ 是 HomePage 开屏页,其 JS bundle 不在 swup 重新执行,
+        // 必须整页加载(data-no-swup)否则动画/脚本不初始化。
+        const noSwup = href === '/welcome/' || href === '/welcome'
         return (
           <li>
-            <a href={href} target={external ? '_blank' : undefined} rel={external ? 'noopener noreferrer' : undefined} title={name} class="not-underline-hover inline-flex items-center">
+            <a href={href} target={external ? '_blank' : undefined} rel={external ? 'noopener noreferrer' : undefined} title={name} data-no-swup={noSwup ? '' : undefined} class="not-underline-hover inline-flex items-center">
               <span class:list={[`i-mdi-${name}`, 'w-6 h-6']}>{name}</span>
             </a>
           </li>

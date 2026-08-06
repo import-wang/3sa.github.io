@@ -27,9 +27,11 @@ if (lp.avatar) {
   cfg.main.avatar.link = lp.avatar
 }
 
-// 导航: Blog 按钮返回 Astro 主站; Email/Github 用真实链接
+// 导航: Blog 按钮返回 Astro 主站; About 指向 Astro 的 /about; Email/Github 用真实链接
+// main.pug 按位置键 first/second/third/fourth 解构,故四个都要设,不能留空导致 undefined。
 cfg.main.ul = cfg.main.ul || {}
 cfg.main.ul.first = { href: '/', icon: 'bokeyuan', text: 'Blog' }
+cfg.main.ul.second = { href: '/about', icon: 'xiaolian', text: 'About' }
 if (lp.email) cfg.main.ul.third = { href: lp.email, icon: 'email', text: 'Email' }
 if (lp.github) cfg.main.ul.fourth = { href: lp.github, icon: 'github', text: 'Github' }
 
