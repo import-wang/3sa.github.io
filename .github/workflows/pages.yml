@@ -23,21 +23,17 @@ jobs:
         with:
           fetch-depth: 1
 
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 10
-
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: pnpm
+          cache: npm
 
-      - run: pnpm install --no-frozen-lockfile
+      - run: npm install
 
       - name: Build HomePage landing into public/welcome
-        run: pnpm run build:welcome
+        run: npm run build:welcome
 
-      - run: pnpm run build
+      - run: npm run build
 
       - uses: actions/configure-pages@v5
 
