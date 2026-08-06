@@ -30,7 +30,7 @@
     "@unocss/astro": "^66.7.5",
     "astro": "^5.11.1",
     "astro-robots-txt": "^1.0.0",
-    "astro-seo": "^0.8.4",
+    "astro-seo": "^1.1.0",
     "giscus": "^1.6.0",
     "rehype-katex": "^7.0.1",
     "remark-math": "^6.0.0"
