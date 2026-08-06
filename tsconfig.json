@@ -13,5 +13,5 @@
     ".astro/types.d.ts",
     "**/*"
   ],
-  "exclude": ["dist"]
+  "exclude": ["dist", "public/welcome", "node_modules", ".homepage", ".hexo-backup", "scripts"]
 }
