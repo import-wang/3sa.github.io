@@ -1,4 +1,4 @@
-name: Deploy Hexo to GitHub Pages
+name: Deploy Astro to GitHub Pages
 
 on:
   push:
@@ -22,21 +22,28 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 1
-          submodules: false
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
 
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
+          cache: pnpm
 
-      - run: npm ci
-      - run: npm run build
+      - run: pnpm install --no-frozen-lockfile
+
+      - name: Build HomePage landing into public/welcome
+        run: pnpm run build:welcome
+
+      - run: pnpm run build
 
       - uses: actions/configure-pages@v5
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: ./public
+          path: ./dist
 
   deploy:
     needs: build

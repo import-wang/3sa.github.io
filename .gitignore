@@ -21,3 +21,12 @@ pnpm-debug.log*
 .DS_Store
 
 Markdown style guide.md
+
+# HomePage landing build output (regenerated on build)
+public/welcome/
+
+# HomePage build temp clone
+.homepage/
+
+# backup of old Hexo site
+.hexo-backup/
