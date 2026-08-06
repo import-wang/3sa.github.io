@@ -21,25 +21,26 @@ html {
   --at-apply: 'hover:(c-background bg-primary decoration-primary)';
 }
 
-/* ponytail: presetTypography 暗色背景默认仍用亮色 prose 变量(深灰 #374151),
-   在主题 #232222 黑底上不可读;切到它自带的 invert(浅色)变量。 */
-.dark {
-  --un-prose-body: var(--un-prose-invert-body);
-  --un-prose-headings: var(--un-prose-invert-headings);
-  --un-prose-lead: var(--un-prose-invert-lead);
-  --un-prose-links: var(--un-prose-invert-links);
-  --un-prose-bold: var(--un-prose-invert-bold);
-  --un-prose-counters: var(--un-prose-invert-counters);
-  --un-prose-bullets: var(--un-prose-invert-bullets);
-  --un-prose-hr: var(--un-prose-invert-hr);
-  --un-prose-quotes: var(--un-prose-invert-quotes);
-  --un-prose-quote-borders: var(--un-prose-invert-quote-borders);
-  --un-prose-captions: var(--un-prose-invert-captions);
-  --un-prose-kbd: var(--un-prose-invert-kbd);
-  --un-prose-kbd-shadows: var(--un-prose-invert-kbd-shadows);
-  --un-prose-code: var(--un-prose-invert-code);
-  --un-prose-pre-code: var(--un-prose-invert-pre-code);
-  --un-prose-pre-bg: var(--un-prose-invert-pre-bg);
-  --un-prose-th-borders: var(--un-prose-invert-th-borders);
-  --un-prose-td-borders: var(--un-prose-invert-td-borders);
+/* ponytail: presetTypography 的 prose 变量(默认亮色,如 body #374151)定义在 .prose
+   选择器自身;.prose 元素上的变量优先级高于从父级 html.dark 继承的值,故必须在
+   .dark .prose(更高特异性)上覆盖,暗色文章正文/标题才不会回退到黑字不可见。 */
+.dark .prose {
+  --un-prose-body: #d1d5db;
+  --un-prose-headings: #ffffff;
+  --un-prose-lead: #9ca3af;
+  --un-prose-links: #ffffff;
+  --un-prose-bold: #ffffff;
+  --un-prose-counters: #9ca3af;
+  --un-prose-bullets: #d1d5db;
+  --un-prose-hr: #374151;
+  --un-prose-quotes: #f3f4f6;
+  --un-prose-quote-borders: #374151;
+  --un-prose-captions: #9ca3af;
+  --un-prose-kbd: #ffffff;
+  --un-prose-kbd-shadows: #ffffff;
+  --un-prose-code: #ffffff;
+  --un-prose-pre-code: #d1d5db;
+  --un-prose-pre-bg: rgb(0 0 0 / 50%);
+  --un-prose-th-borders: #4b5563;
+  --un-prose-td-borders: #374151;
 }
